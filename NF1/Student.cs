@@ -13,8 +13,15 @@ namespace N6_issue1
         public DateTime BirthDay { get; set; }
         public int Payment { get; set; }
         public string EduType { get; set; }
+        public int PaymentAmount { get; set; }
         public bool IsPayment { get; set; }
 
         public int GetAge() => DateTime.Now.Year - BirthDay.Year;
+        public string GetPayment()
+        {
+            decimal amount = Payment - PaymentAmount;
+            if (amount < 0) return $"{-amount} haqdor";
+            else return $"{amount} qarzdor";
+        }
     }
 }
