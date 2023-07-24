@@ -45,6 +45,7 @@ int[,] balls = new int[,]
 Console.WriteLine("1 - Talabalar ro'yxati");
 Console.WriteLine("2 - To'lovlar");
 Console.WriteLine("3 - Baholar");
+Console.WriteLine("4 - Talaba qo'shish");
 Console.WriteLine("Kerakli raqamni tallang");
 var choiceTable = Console.ReadLine();
 switch (choiceTable)
@@ -154,6 +155,27 @@ switch (choiceTable)
         for (int i = 0; i < student.Count; i++)
         {
             Console.WriteLine(string.Format($"{student[i].FullName.ToString().PadRight(45,' ')}{balls[i, 0].ToString().PadRight(20, ' ')}{balls[i, 2].ToString().PadRight(20, ' ')}{balls[i, 3]}"));
+        }
+        break;
+    case "4":
+        Console.WriteLine("FIO: ");
+        var NewStudentName = Console.ReadLine();
+        Console.WriteLine("Yo'nalish: ");
+        var NewStudentEduType = Console.ReadLine();
+        student.Add(new Student{
+            Id = student.Count + 1,
+            FullName = NewStudentName,
+            BirthDay = DateTime.Now,
+            EduType = NewStudentEduType
+        });
+        Console.WriteLine("Ro'yxatni ko'rish uchun Y ni bosing: ");
+        var ForSeeing = Console.ReadLine();
+        if ( ForSeeing == "Y" ||  ForSeeing == "y")
+        {
+            for (int i = 0; i < student.Count; i++)
+            {
+                Console.WriteLine(string.Format($"{student[i].FullName.ToString().PadRight(45, ' ')}"));
+            }
         }
         break;
 }
