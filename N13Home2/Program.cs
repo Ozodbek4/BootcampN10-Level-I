@@ -1,4 +1,4 @@
-﻿PasswordGenerate pass = new PasswordGenerate(10, false);
+﻿PasswordGenerate pass = new PasswordGenerate(10, true,true);
 
 Console.WriteLine(pass.Generate());
 
@@ -30,3 +30,16 @@ public class PasswordGenerate
         return Password;
     }
 }
+
+//public class SecurePasswordGenerator : PasswordGenerate
+//{
+//    public SecurePasswordGenerator(int length, bool hasLetter, bool hasDigit)
+//    {
+
+//    }
+//}
+
+//public class UniquePasswordGenerator
+//{
+
+//}
