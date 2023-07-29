@@ -16,8 +16,8 @@ public class Validator
 {
     private Regex _fullName = new Regex(@"^[a-zA-Z'-]+$");
     private Regex _email = new Regex(@"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
-    private Regex _phoneNumber = new Regex(@"^(9\d|98\d|2\d)\d{7}$
-");
+    private Regex _phoneNumber = new Regex(@"^(9\d|98\d|2\d)\d{7}$");
+
 
     public string FullName(string name)
     {
