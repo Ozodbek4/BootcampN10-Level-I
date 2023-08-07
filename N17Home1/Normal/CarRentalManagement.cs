@@ -15,14 +15,14 @@ namespace N17Home1.Normal
         private int _count = 0;
 
 
-        public void Add(Bmw car) 
+        public void Add(Bmw car)
         {
             _count++;
             car.Id = _count;
-            Cars.Add( new CarRental() 
+            Cars.Add(new CarRental()
             {
-                IsRented  = car.IsRented,
-                RentStartTime  = car.RentStartTime,
+                IsRented = car.IsRented,
+                RentStartTime = car.RentStartTime,
                 Balance = car.Balance,
                 BrandName = car.BrandName,
                 Id = car.Id,
@@ -66,7 +66,7 @@ namespace N17Home1.Normal
                 if (item.Id == car.Id && item.IsRented)
                 {
                     item.IsRented = false;
-                    var a =(DateTime.Now - car.RentStartTime).Seconds / 5;
+                    var a = (DateTime.Now - car.RentStartTime).Seconds / 5;
                     Random random = new Random();
                     int b = random.Next(0, 5);
                     a = (int)(a + b);
@@ -92,7 +92,7 @@ namespace N17Home1.Normal
         public void CalculateBalance()
         {
             var summaBalance = 0;
-            foreach(var item in Cars)
+            foreach (var item in Cars)
             {
                 if (item.Balance != 0)
                 {
