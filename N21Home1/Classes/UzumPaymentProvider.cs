@@ -12,7 +12,7 @@ namespace N21Home1.Classes
         public double TransferInterest { get; init; }
         public UzumPaymentProvider()
         {
-            TransferInterest = 1;
+            TransferInterest = 0.6;
         }
         public void Transfer(IDebitCard sourceCard, IDebitCard destinationCard, double amount)
         {
@@ -26,7 +26,7 @@ namespace N21Home1.Classes
                 Console.WriteLine("Pul yetarli emas");
                 return;
             }
-            sourceCard.Balance -= amount - sourceCard.Balance * 0.01;
+            sourceCard.Balance -= amount - sourceCard.Balance * TransferInterest / 100;
             destinationCard.Balance += amount;
 
         }
