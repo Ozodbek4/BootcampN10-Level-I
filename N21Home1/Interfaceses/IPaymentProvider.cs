@@ -10,6 +10,6 @@ namespace N21Home1.Interfaceses
     internal interface IPaymentProvider
     {
         string  TransferInterest { get; init; }
-        void Transfer(string sourceCard, string destinationCard, double amount);
+        void Transfer(IDebitCard sourceCard, IDebitCard destinationCard, double amount);
     }
 }

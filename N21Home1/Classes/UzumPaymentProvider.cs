@@ -10,7 +10,7 @@ namespace N21Home1.Classes
     internal class UzumPaymentProvider : IPaymentProvider
     {
         public string TransferInterest { get; init; }
-        public void Transfer(string sourceCard, string destinationCard, double amount)
+        public void Transfer(IDebitCard sourceCard, IDebitCard destinationCard, double amount)
         {
 
         }

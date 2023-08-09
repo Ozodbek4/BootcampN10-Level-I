@@ -20,7 +20,7 @@ namespace N21Home1.Classes
 
         }
 
-        public void Buy(string name, int number, string card)
+        public void Buy(string name, int number, IDebitCard card)
         {
 
         }
