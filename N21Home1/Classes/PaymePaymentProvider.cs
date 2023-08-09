@@ -10,6 +10,9 @@ namespace N21Home1.Classes
     internal class PaymePaymentProvider : IPaymentProvider
     {
         public string TransferInterest { get; init; }
-        public void Transfer(string sourceCard, string destinationCard, double amount);
+        public void Transfer(string sourceCard, string destinationCard, double amount)
+        {
+
+        }
     }
 }
