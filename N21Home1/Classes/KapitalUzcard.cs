@@ -11,6 +11,12 @@ namespace N21Home1.Classes
     {
         public string CardNumber { get; set; }
         public string BankName { get; init; }
-        public double Balance { get; init; }
+        public double Balance { get; set; }
+        public KapitalUzcard (string cardNumber, string bankName, double balance)
+        {
+            CardNumber = cardNumber;
+            BankName = bankName;
+            Balance = balance;
+        }
     }
 }

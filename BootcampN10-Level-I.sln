@@ -231,7 +231,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "N20Task2", "N21Task1\N20Tas
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hometasks", "Hometasks", "{12F7FAE4-ABA9-4940-B49D-23024C5E7B2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N21Home1", "N21Home1\N21Home1.csproj", "{70C240AF-4D27-4844-9D85-63DCD2F4C082}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "N20Home1", "N21Home1\N20Home1.csproj", "{70C240AF-4D27-4844-9D85-63DCD2F4C082}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -26,7 +26,7 @@ namespace N21Home1.Classes
                 Console.WriteLine("Pul yetarli emas");
                 return;
             }
-            sourceCard.Balance -= amount - sourceCard.Balance * TransferInterest / 100;
+            sourceCard.Balance -= amount - amount * TransferInterest / 100;
             destinationCard.Balance += amount;
 
         }
