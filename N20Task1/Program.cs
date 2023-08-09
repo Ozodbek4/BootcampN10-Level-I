@@ -1,5 +1,6 @@
 ﻿Console.WriteLine("Sonlar massivni kiriting: ");
 var arr = Array.ConvertAll(Console.ReadLine().Split(),s=>int.Parse(s));
+Console.WriteLine("Saralashdan keyingi holat: ");
 BubleSort(arr);
 foreach(var item in arr)
 {
