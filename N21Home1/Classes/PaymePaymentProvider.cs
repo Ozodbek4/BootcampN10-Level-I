@@ -9,14 +9,35 @@ namespace N21Home1.Classes
 {
     internal class PaymePaymentProvider : IPaymentProvider
     {
-        public string TransferInterest { get; init; }
+        public double TransferInterest { get; init; }
+        public PaymePaymentProvider()
+        {
+            TransferInterest = 1;
+        }
         public void Transfer(IDebitCard sourceCard, IDebitCard destinationCard, double amount)
         {
+            if (IsValidCard(sourceCard.CardNumber) && IsValidCard(destinationCard.CardNumber))
+            {
+                Console.WriteLine("Karta nomer kiritishda xatolik");
+                return;
+            }
+            if (IsEnoughAmount(sourceCard.Balance, amount) == false)
+            {
+                Console.WriteLine("Pul yetarli emas");
+                return;
+            }
+            sourceCard.Balance -= amount - sourceCard.Balance * 0.01;
+            destinationCard.Balance += amount;
 
         }
-        private bool IsValidCard(IDebitCard card)
+        private bool IsValidCard(string cardNumber)
         {
-            return card.CardNumber.All(char.IsDigit) && card.CardNumber.Length == 16;
+            return cardNumber.All(char.IsDigit) && cardNumber.Length == 16;
+        }
+
+        private bool IsEnoughAmount (double cardBalance, double amount)
+        {
+            return cardBalance >= amount;
         }
     }
 }
