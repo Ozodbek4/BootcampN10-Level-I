@@ -18,13 +18,9 @@ var users = new List<User>
 Console.WriteLine("Kerakli user uchun kalit so'zni kiriting: ");
 var needed = Console.ReadLine();
 
-//var re = users.Select(user =>
-//{
-//    if (user.FistName.Contains(needed, StringComparison.OrdinalIgnoreCase) || user.LastName.Contains(needed, StringComparison.OrdinalIgnoreCase) || user.EmailAddress.Contains(needed, StringComparison.OrdinalIgnoreCase){
-//        return user;
-//    }
-//});
+var result = users.Where(user => user.FistName.Contains(needed, StringComparison.OrdinalIgnoreCase) 
+    || user.LastName.Contains(needed, StringComparison.OrdinalIgnoreCase) || user.EmailAddress
+    .Contains(needed, StringComparison.OrdinalIgnoreCase));
 
-var result = users.Where(user => user.FistName.Contains(needed, StringComparison.OrdinalIgnoreCase) || user.LastName.Contains(needed, StringComparison.OrdinalIgnoreCase) || user.EmailAddress.Contains(needed, StringComparison.OrdinalIgnoreCase));
-
-result.ToList().ForEach(user => Console.WriteLine($"{user.FistName.PadRight(15)}{user.LastName.PadRight(15)}{user.EmailAddress}"));
+result.ToList().ForEach(user => Console.WriteLine($"{user.FistName.PadRight(15)}" +
+    $"{user.LastName.PadRight(15)}{user.EmailAddress}"));
