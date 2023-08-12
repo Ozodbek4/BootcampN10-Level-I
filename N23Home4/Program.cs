@@ -16,12 +16,12 @@ List<Book> books = new List<Book>()
 //    $"Rayting: {book.Rating.ToString().PadRight(5)}{book.Author}"));
 //Console.WriteLine("\n");
 
-//var a = newBook.First(book => book.Author == "Abdulla Qodiriy");
-//var b = newBook.Last(book => book.Author == "Abdulla Qodiriy");
-//Console.WriteLine($"{a.Name} {a.Rating} {a.Author}");
-//Console.WriteLine($"{b.Name} {b.Rating} {b.Author}");
+//var bookA = newBook.First(book => book.Author == "Abdulla Qodiriy");
+//var bookB = newBook.Last(book => book.Author == "Abdulla Qodiriy");
+//Console.WriteLine($"{bookA.Name} {bookA.Rating} {bookA.Author}");
+//Console.WriteLine($"{bookB.Name} {bookB.Rating} {bookB.Author}");
 
-var a = books.OrderBy(book => book.Rating).First(book => book.Author == "Abdulla Qodiriy");
-var b = books.OrderBy(book => book.Rating).Last(book => book.Author == "Abdulla Qodiriy");
-Console.WriteLine($"{a.Name} {a.Rating} {a.Author}");
-Console.WriteLine($"{b.Name} {b.Rating} {b.Author}");
+var bookA = books.OrderByDescending(book => book.Rating).FirstOrDefault(book => book.Author == "Abdulla Qodiriy");
+var bookB = books.OrderByDescending(book => book.Rating).LastOrDefault(book => book.Author == "Abdulla Qodiriy");
+Console.WriteLine($"{bookA.Name} {bookA.Rating} {bookA.Author}");
+Console.WriteLine($"{bookB.Name} {bookB.Rating} {bookB.Author}");
