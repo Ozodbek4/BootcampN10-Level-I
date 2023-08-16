@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace N24HomeTask1.Services
 {
-    internal class Register
+    internal class RegisterService
     {
         private IUserService _iUserService;
         private IUserCredentialsService _iUserCredentialsService;
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string EmailAddress { get; set; }
-        public string Password { get; set; }
-        public Register(IUserService iUserService, IUserCredentialsService iUserCredentialsService)
+        public RegisterService(IUserService iUserService, IUserCredentialsService iUserCredentialsService)
         {
             _iUserService = iUserService;
             _iUserCredentialsService = iUserCredentialsService;
+        }
+        public void Register(string firstName, string lastName, string emailAddress, string password)
+        {
+
         }
     }
 }
