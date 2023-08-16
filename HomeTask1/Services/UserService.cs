@@ -11,7 +11,7 @@ namespace N24HomeTask1.Services
     {
         protected List<User> _users = new List<User>()
         {
-            new User(1, "Ozodebk", "Anvarjonov", "anvarjonovozodbek416@gmail.com"),
+            new User(1, "Hakim", "Qodirov", "hakimqodirov@gmail.com"),
             new User(2, "John", "Doe", "john.doe@example.com"),
             new User(3, "Jane", "Smith", "jane.smith@example.com"),
             new User(4, "Alice", "Johnson", "alice.johnson@example.com"),

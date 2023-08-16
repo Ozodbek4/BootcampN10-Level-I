@@ -7,18 +7,17 @@ using System.Threading.Tasks;
 
 namespace N24HomeTask1.Services
 {
-    internal class UserCredentials : IUserCredentialsService
+    internal class UserCredentials
     {
+        public UserCredentials(int id, string password, int userId)
+        {
+            Id = id;
+            Password = password;
+            UserId = userId;
+        }
+
         public int Id { get; set; }
         public string Password { get; set; }
         public int UserId { get; set; }
-        public void Add(int userId, string password)
-        {
-
-        }
-        public void GetByUserId(int userId)
-        {
-
-        }
     }
 }
