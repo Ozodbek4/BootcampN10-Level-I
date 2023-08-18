@@ -16,13 +16,15 @@ namespace N27Home1.Model
         public int Like { get; set; }
         public int Dislike { get; set; }
         public Topics Topics { get; set; }
-
-        private List<VideoPost> _videoPosts = new List<VideoPost>();
         
-        public void Add(string tittle, string description, int like, int dislike, Topics topic)
+        public VideoPost(string tittle, string description, int like, int dislike, Topics topic)
         {
-            _videoPosts.Add(new VideoPost() { Id = Guid.NewGuid(), Title = tittle,
-                Description = description, Like = like, Dislike = dislike, Topics = topic });
+            Id = Guid.NewGuid();
+            Title = tittle;
+            Description = description;
+            Like = like;
+            Dislike = dislike;
+            Topics = topic;
         }
     }
 }
