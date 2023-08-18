@@ -18,9 +18,16 @@ public class PriorityQueue<TEvent> : IEnumerable<TEvent>, IPriorityQueue<TEvent>
 
     public TEvent Dequeue()
     {
-        var newEvent = _events.MaxBy(e => e.Priority);
-        _events.Remove(newEvent);
-        return newEvent;
+        var maxIvent = _events[0];
+        foreach (var item in _events)
+        {
+            if (maxIvent < item)
+            {
+                maxIvent = item;
+            }
+        }
+        _events.Remove(maxIvent);
+        return maxIvent;
     }
 
     public TEvent Peek()
