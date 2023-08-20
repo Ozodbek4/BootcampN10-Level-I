@@ -11,14 +11,10 @@ namespace N25Home1.Models
     {
         public List<IProduct> Inventory = new List<IProduct>();
 
-        public void Add(IProduct product)
-        {
-
-        }
+        public void Add(IProduct product) { }
 
         public List<string> GetFilterData(string filter)
         {
-
             return null;
         }
     }
