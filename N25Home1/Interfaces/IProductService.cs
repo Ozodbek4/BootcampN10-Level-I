@@ -9,8 +9,7 @@ namespace N25Home1.Interfaces
 {
     internal interface IProductService
     {
-        void Get(IProduct filterModel);
-        void Order(int id);
-        void Return(int id);
+        void Add(IProduct product);
+        public List<string> GetFilterData(string filter);
     }
 }

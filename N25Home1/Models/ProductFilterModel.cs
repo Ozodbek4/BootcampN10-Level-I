@@ -9,13 +9,7 @@ namespace N25Home1.Models
 {
     internal class ProductFilterModel
     {
-        public List<IProduct> Inventory = new List<IProduct>();
-
-        public void Add(IProduct product) { }
-
-        public List<string> GetFilterData(string filter)
-        {
-            return null;
-        }
+        public string Name { get; set; }
+        public string Type { get; set; }
     }
 }
