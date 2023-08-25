@@ -147,31 +147,34 @@ orders.Add(new(98, 12, 7386, new DateTime(2023, 10, 12)));
 orders.Add(new(99, 16, 4283, new DateTime(2023, 1, 10)));
 #endregion
 
-var groupJoinCostumerOrders = customers.GroupJoin(orders,
+
+// GroupJoin
+
+var query = customers.GroupJoin(orders,
     customers => customers.Id,
     orders => orders.CustomerId,
     (customers, orders) => new
     {
-        Id = customers.Id,
-        FirstName = customers.FirstName,
-        LastName = customers.LastName,
-        Country = customers.Country,
-        Amount = orders.Where(x => x.Id == customers.Id).Select(item =>  item.Amount).ToList(),
-        OrderDate = orders.Where(x => x.Id == customers.Id).Select(item => item.OrderDate).ToList(),
-    });
-foreach (var item in groupJoinCostumerOrders)
-{
-    Console.Write($"{item.Id} - {item.FirstName} - {item.LastName} - {item.Country} - {item.Amount.Count}\n");
-    //foreach (var cust in item.Amount)
-    //{
-    //    Console.Write($"{cust} - ");
-    //}
-    //foreach (var cus in item.OrderDate)
-    //{
-    //    Console.WriteLine($"{cus}\n");
+        Customers = customers,
+        Orders = orders
+    }).ToList();
 
-    //}
+
+var query2 = customers.GroupBy(customer => customer.Country);
+var query5 = query.Where(all => all.Customers.Country == Country.UK);
+var query3 = query5.Select(all => new { Customer = all.Customers, Orders = all.Orders.Where(order => (DateTime.Now - order.OrderDate).Days < 32 && (DateTime.Now - order.OrderDate).Days >= 0) });
+var query4 = query3.Select(all => new { Customer = all.Customer, Orders = all.Orders.Where(order => order.Amount >= 5000) });
+foreach (var all in query4)
+{
+    if (all.Orders.Count() > 0)
+    {
+        Console.WriteLine($"Customer: {all.Customer}");
+        all.Orders.ToList().ForEach(order => Console.WriteLine($"Order: {order}"));
+    }
 }
+
+
+
 
 
 public enum Country
@@ -202,6 +205,10 @@ public class Customer
         LastName = lastName;
         Country = country;
     }
+    public override string ToString()
+    {
+        return $"{FirstName} {LastName}";
+    }
 }
 
 public class Order
@@ -217,5 +224,9 @@ public class Order
         Amount = amount;
         CustomerId = customerId;
         OrderDate = orderDate;
+    }
+    public override string ToString()
+    {
+        return $"Amount: {Amount} Id - {Id} OrderDate - {OrderDate.ToString("dd - MM - yyy")}";
     }
 }
